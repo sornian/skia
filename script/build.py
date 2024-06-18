@@ -115,7 +115,6 @@ def main():
         'skia_use_webgl=true',
         'skia_use_piex=false',
         'skia_use_system_libpng=false',
-        'skia_use_system_freetype2=false',
         'skia_use_system_libjpeg_turbo=false',
         'skia_use_system_libwebp=false',
         'skia_enable_tools=false',
