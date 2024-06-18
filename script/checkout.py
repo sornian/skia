@@ -19,8 +19,7 @@ def main():
 
   commit = match.group(2)
   iteration = match.group(3)
-  print("header")
-  print(str(common.github_headers()))
+
   if os.path.exists("skia"):
     print("> Fetching")
     os.chdir("skia")
