@@ -21,7 +21,7 @@ jobs:
     strategy:
       matrix:
         build_type: [Debug, Release]
-        machine: ["x64", "arm64"]
+        machine: ["x64", "x86"]
       fail-fast: false
     steps:
       - run: git config --global core.autocrlf input
@@ -29,6 +29,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.9'
+      - uses: KyleMayes/install-llvm-action@v2
+        with:
+          version: "18.1.7"
       - shell: bash
         run: python3 script/check_release.py --version ${{ env.version }} --build-type ${{ matrix.build_type }} --target windows --machine ${{ matrix.machine }}
         if: ${{ github.event.inputs.skip_release != 'true' && github.ref == 'refs/heads/main' }}

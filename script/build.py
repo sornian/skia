@@ -78,6 +78,12 @@ def main():
             'cxx="g++-9"',
         ]
   elif 'windows' == target:
+    args += [
+      'cc=\"clang\"',
+      'cxx=\"clang++\"',
+      'clang_win_version=\"18\"',
+      'clang_win=\"C:\\Program Files\\LLVM\"'
+    ]
     if build_type == 'Debug':
       args +=['extra_cflags=["-DSK_FONT_HOST_USE_SYSTEM_SETTINGS","/MDd"]']
     else:
