@@ -1,5 +1,6 @@
 #! /usr/bin/env python3
 
+import os
 import common, json, sys, urllib.request
 
 def main():
@@ -9,7 +10,7 @@ def main():
   target = common.target()
   machine = common.machine()
   classifier = common.classifier()
-  print('> Checking for release "' + headers + '"')
+  print('> Checking for release "' + os.environ.get('GITHUB_TOKEN') + '"')
   try:
     resp = urllib.request.urlopen(urllib.request.Request('https://api.github.com/repos/sornian/skia/releases/tags/' + version, headers=headers)).read()
     artifacts = [x['name'] for x in json.loads(resp.decode('utf-8'))['assets']]
