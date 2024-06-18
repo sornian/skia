@@ -48,12 +48,7 @@ jobs:
       - shell: bash
         run: python3 script/archive.py --version ${{ env.version }} --build-type ${{ matrix.build_type }} --target windows --machine ${{ matrix.machine }}
       - uses: actions/upload-artifact@v2
-        if: ${{ github.event.inputs.skip_release != 'true' && github.ref == 'refs/heads/main' }}
         with:
           name: Skia-${{ env.version }}-windows-${{ matrix.build_type }}-${{ matrix.machine }}.zip
           path: '*.zip'
-      - shell: bash
-        run: python3 script/release.py --version ${{ env.version }} --build-type ${{ matrix.build_type }} --target windows --machine ${{ matrix.machine }}
-        if: ${{ github.event.inputs.skip_release != 'true' && github.ref == 'refs/heads/main' }}
-        env:
-          GITHUB_TOKEN: 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
+      
