@@ -78,9 +78,12 @@ def main():
             'cxx="g++-9"',
         ]
   elif 'windows' == target:
+    if build_type == 'Debug':
+      args +=['extra_cflags=["-DSK_FONT_HOST_USE_SYSTEM_SETTINGS","/MDd"]']
+    else:
+      args +=['extra_cflags=["-DSK_FONT_HOST_USE_SYSTEM_SETTINGS","/MD"]']
     args += [
       'skia_use_direct3d=true',
-      'extra_cflags=["-DSK_FONT_HOST_USE_SYSTEM_SETTINGS"]',
     ]
   elif 'android' == target:
     args += [
