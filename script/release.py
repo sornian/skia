@@ -17,7 +17,7 @@ def main():
     return 1
 
   headers = common.github_headers()
-
+  print(headers)
   try:
     resp = urllib.request.urlopen(urllib.request.Request('https://api.github.com/repos/sornian/skia/releases/tags/' + version, headers=headers)).read()
   except urllib.error.URLError as e:
