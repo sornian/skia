@@ -19,11 +19,11 @@ def main():
   isIosSim = 'iosSim' == target
   isTvosSim = 'tvosSim' == target
 
-  if build_type == 'Debug':
-    args = ['is_debug=true']
-  else:
-    args = ['is_official_build=true']
-
+#  if build_type == 'Debug':
+#    args = ['is_debug=true']
+#  else:
+#    args = ['is_official_build=true']
+  args = ['is_official_build=true']
   args += [
     'target_cpu="' + machine + '"',
     'skia_use_system_expat=false',
