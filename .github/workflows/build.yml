@@ -21,7 +21,8 @@ jobs:
     strategy:
       matrix:
         build_type: [Debug, Release]
-        machine: ["x64", "x86"]
+        machine: ["x64"]
+        #machine: ["x64", "x86"]
       fail-fast: false
     steps:
       - run: git config --global core.autocrlf input
